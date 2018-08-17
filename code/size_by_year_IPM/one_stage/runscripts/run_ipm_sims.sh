@@ -1,0 +1,32 @@
+#!/bin/bash 
+
+##Rscript ipm_no_overlap_sxy.R 1
+##Rscript ipm_no_overlap_sxy.R 2
+##Rscript ipm_no_overlap_sxy.R 3
+##Rscript ipm_no_overlap_sxy.R 4
+##Rscript ipm_no_overlap_sxy.R 5
+##Rscript ipm_no_overlap_sxy.R 6
+##Rscript ipm_no_overlap_sxy.R 7
+##Rscript ipm_no_overlap_sxy.R 8
+##Rscript ipm_no_overlap_sxy.R 9
+##Rscript ipm_no_overlap_sxy.R 10
+##Rscript ipm_no_overlap_sxy.R 11
+##Rscript ipm_no_overlap_sxy.R 12
+##Rscript ipm_no_overlap_sxy.R 13
+##Rscript ipm_no_overlap_sxy.R 14
+##Rscript ipm_no_overlap_sxy.R 15
+##Rscript ipm_no_overlap_sxy.R 16
+##Rscript ipm_no_overlap_sxy.R 17
+##Rscript ipm_no_overlap_sxy.R 18
+##Rscript ipm_no_overlap_sxy.R 19
+##Rscript ipm_no_overlap_sxy.R 20
+##Rscript ipm_no_overlap_sxy.R 21
+##Rscript ipm_no_overlap_sxy.R 22
+##Rscript ipm_no_overlap_sxy.R 23
+##Rscript ipm_no_overlap_sxy.R 24
+##Rscript ipm_no_overlap_sxy.R 25
+##Rscript ipm_no_overlap_sxy.R 26
+##Rscript ipm_no_overlap_sxy.R 27
+##Rscript ipm_no_overlap_sxy.R 28
+##Rscript ipm_no_overlap_sxy.R 29
+##Rscript ipm_no_overlap_sxy.R 30

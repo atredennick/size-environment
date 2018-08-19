@@ -11,6 +11,12 @@
 #  This script sources all the other R scripts necessary to make all our
 #  figures and conduct all analyses. Scripts that underly the results of 
 #  particular figures are noted in each figure caption in the manuscript.
+#  Note that simply running this script will take a LONG, LONG time. Thus,
+#  it is better to consider this script as a recipe for the analysis, and
+#  interested coders should probably just check out the sourced scripts.
+#  All results files, which are generated from running these scripts, are
+#  also included in this fileset. We identify the scripts that generate results
+#  and those that summarize and/or plot those results.
 #
 # Authors:
 #  Andrew Tredennick (Primary contact; atredenn@gmail.com)
@@ -47,6 +53,8 @@ ipak <- function(pkg){
 
 ipak(needed_pckgs)  # run the ipak function
 
+root <- getwd()  # set root directory to this location
+
 
 # 01. Create graphics for conceptual Figure 1 -----------------------------
 
@@ -55,4 +63,4 @@ source("./SizeByYear_schematic.R")
 
 # 02. Fit all models ------------------------------------------------------
 
-
+source("./size_by_year_models/anomaly_analysis.R")

@@ -14,9 +14,6 @@
 ##  Date created: December 5, 2017
 ################################################################################
 
-##  Clear the workspace
-rm(list = ls(all.names = TRUE))
-
 
 
 ####
@@ -34,14 +31,11 @@ library(RLRsim)    # Testing mixed-effects models
 ####
 ####  SET DIRECTORIES ----------------------------------------------------------
 ####
-root      <- ifelse(.Platform$OS.type=="windows","c:/repos/","~/repos/")
-dir       <- paste0(root,"drivers/")
-mainDir   <- paste0(dir,"empirical/")
-utilDir   <- paste0(mainDir,"size_by_year_models/utilities")
-datadrivs <- paste0(root,"driversdata/Data/")
-outDir    <- paste0(mainDir,"size_by_year_models/results/")
+mainDir   <- root
+utilDir   <- paste0(mainDir, "/size_by_year_models/utilities")
+datadrivs <- "../data/"
+outDir    <- paste0(mainDir, "/size_by_year_models/results/")
 
-setwd(mainDir)
 source(paste(utilDir,"/fetchDemoData.R", sep="")) # fetch data function
 source(paste0(utilDir,"/TrimQuads_BT.R")) # Distinguish seedlings (rising 2yo) function
 

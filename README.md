@@ -15,3 +15,4 @@ This repository is organized as a project directory, with subdirectories:
 each of which have their own subdirectories.
 The `R` script `./code/MASTER.R` serves as a guide through the analyses necessary to reproduce our results.
 Some of the scripts take a while to run, so I suggest interested users consider this more of a way to explore our methods rather than a way to reproduce the work on the fly.
+The repository includes the results from running the code (see `results/` and `figures/` directories).

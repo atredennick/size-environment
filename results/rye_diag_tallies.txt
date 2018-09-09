@@ -1,0 +1,65 @@
+##------ Sun Sep  9 13:29:08 2018 ------##
+
+
+Grouped by state, species, and vital rate
+
+       state species vital offs ons  off_perc   on_perc
+1    Arizona    BOER  grow    2  14 12.500000  87.50000
+2    Arizona    BOER  surv    0  17  0.000000 100.00000
+3    Arizona    BORO  grow    5  12 29.411765  70.58824
+4    Arizona    BORO  surv    0  17  0.000000 100.00000
+5      Idaho    ARTR  grow    8  13 38.095238  61.90476
+6      Idaho    ARTR  surv   11  10 52.380952  47.61905
+7      Idaho    HECO  grow    6  15 28.571429  71.42857
+8      Idaho    HECO  surv    5  16 23.809524  76.19048
+9      Idaho    POSE  grow    9  12 42.857143  57.14286
+10     Idaho    POSE  surv    5  16 23.809524  76.19048
+11     Idaho    PSSP  grow    6  15 28.571429  71.42857
+12     Idaho    PSSP  surv    3  18 14.285714  85.71429
+13    Kansas    ANGE  grow   14  24 36.842105  63.15789
+14    Kansas    ANGE  surv   11  27 28.947368  71.05263
+15    Kansas    BOCU  grow   18  19 48.648649  51.35135
+16    Kansas    BOCU  surv    6  31 16.216216  83.78378
+17    Kansas    BOHI  grow    1  33  2.941176  97.05882
+18    Kansas    BOHI  surv    5  30 14.285714  85.71429
+19   Montana    BOGR  grow    4   9 30.769231  69.23077
+20   Montana    BOGR  surv   11   2 84.615385  15.38462
+21   Montana    HECO  grow    2  11 15.384615  84.61538
+22   Montana    HECO  surv    4   9 30.769231  69.23077
+23   Montana    PASM  grow   10   3 76.923077  23.07692
+24   Montana    PASM  surv    1  12  7.692308  92.30769
+25   Montana    POSE  grow    2  11 15.384615  84.61538
+26   Montana    POSE  surv    4   9 30.769231  69.23077
+27 NewMexico    BOER  grow    7  23 23.333333  76.66667
+28 NewMexico    BOER  surv    8  22 26.666667  73.33333
+29 NewMexico    SPFL  grow    7  22 24.137931  75.86207
+30 NewMexico    SPFL  surv   10  20 33.333333  66.66667
+
+
+
+Grouped by state and vital rate
+
+# A tibble: 10 x 6
+# Groups:   state [5]
+   state     vital  offs   ons off_perc on_perc
+   <fct>     <chr> <int> <int>    <dbl>   <dbl>
+ 1 Arizona   grow      7    26     21.2    78.8
+ 2 Arizona   surv      0    34      0.    100. 
+ 3 Idaho     grow     29    55     34.5    65.5
+ 4 Idaho     surv     24    60     28.6    71.4
+ 5 Kansas    grow     33    76     30.3    69.7
+ 6 Kansas    surv     22    88     20.0    80.0
+ 7 Montana   grow     18    34     34.6    65.4
+ 8 Montana   surv     20    32     38.5    61.5
+ 9 NewMexico grow     14    45     23.7    76.3
+10 NewMexico surv     18    42     30.0    70.0
+
+
+
+Grouped by vital rate
+
+# A tibble: 2 x 5
+  vital  offs   ons off_perc on_perc
+  <chr> <int> <int>    <dbl>   <dbl>
+1 grow    101   236     30.0    70.0
+2 surv     84   256     24.7    75.3

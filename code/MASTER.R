@@ -53,14 +53,31 @@ ipak <- function(pkg){
 
 ipak(needed_pckgs)  # run the ipak function
 
-root <- getwd()  # set root directory to this location
-
 
 # 01. Create graphics for conceptual Figure 1 -----------------------------
 
+root <- getwd()  # set root directory to this location
 source("./SizeByYear_schematic.R")
+rm(list = ls(all.names = TRUE))
 
 
 # 02. Fit all models ------------------------------------------------------
 
+root <- getwd()  # set root directory to this location
 source("./size_by_year_models/anomaly_analysis.R")
+rm(list = ls(all.names = TRUE))
+
+# Results for Table 1 are in:
+#  results/grow_model_comparisons.csv
+#  results/surv_model_comparisons.csv
+
+
+# 03. Plot size-by-year results (Figs. 2 & 3) -----------------------------
+
+root <- getwd()  # set root directory to this location
+source("./size_by_year_models/plot_sxy_statistics.R")
+rm(list = ls(all.names = TRUE))
+
+# Figure 2: figures/sd_anomalies_all.pdf
+# Figure 3: figures/small_large_corrs.pdf
+

@@ -1,0 +1,65 @@
+##------ Sun Sep  9 13:29:08 2018 ------##
+
+
+Grouped by state, species, and vital rate
+
+       state species   plant_size offs ons off_perc  on_perc
+1    Arizona    BOER Large Plants    1  15  6.25000 93.75000
+2    Arizona    BOER Small Plants    3  13 18.75000 81.25000
+3    Arizona    BORO Large Plants    7  10 41.17647 58.82353
+4    Arizona    BORO Small Plants    8   9 47.05882 52.94118
+5      Idaho    ARTR Large Plants    8  13 38.09524 61.90476
+6      Idaho    ARTR Small Plants    3  18 14.28571 85.71429
+7      Idaho    HECO Large Plants   11  10 52.38095 47.61905
+8      Idaho    HECO Small Plants    8  13 38.09524 61.90476
+9      Idaho    POSE Large Plants   10  11 47.61905 52.38095
+10     Idaho    POSE Small Plants   10  11 47.61905 52.38095
+11     Idaho    PSSP Large Plants    8  13 38.09524 61.90476
+12     Idaho    PSSP Small Plants    9  12 42.85714 57.14286
+13    Kansas    ANGE Large Plants   24  14 63.15789 36.84211
+14    Kansas    ANGE Small Plants   17  21 44.73684 55.26316
+15    Kansas    BOCU Large Plants   11  26 29.72973 70.27027
+16    Kansas    BOCU Small Plants   13  24 35.13514 64.86486
+17    Kansas    BOHI Large Plants   17  17 50.00000 50.00000
+18    Kansas    BOHI Small Plants   17  17 50.00000 50.00000
+19   Montana    BOGR Large Plants    5   8 38.46154 61.53846
+20   Montana    BOGR Small Plants    4   9 30.76923 69.23077
+21   Montana    HECO Large Plants    2  11 15.38462 84.61538
+22   Montana    HECO Small Plants    4   9 30.76923 69.23077
+23   Montana    PASM Large Plants    3  10 23.07692 76.92308
+24   Montana    PASM Small Plants    8   5 61.53846 38.46154
+25   Montana    POSE Large Plants    3  10 23.07692 76.92308
+26   Montana    POSE Small Plants    5   8 38.46154 61.53846
+27 NewMexico    BOER Large Plants   13  17 43.33333 56.66667
+28 NewMexico    BOER Small Plants   10  20 33.33333 66.66667
+29 NewMexico    SPFL Large Plants   12  17 41.37931 58.62069
+30 NewMexico    SPFL Small Plants    9  20 31.03448 68.96552
+
+
+
+Grouped by state and vital rate
+
+# A tibble: 10 x 6
+# Groups:   state [5]
+   state     plant_size    offs   ons off_perc on_perc
+   <fct>     <chr>        <int> <int>    <dbl>   <dbl>
+ 1 Arizona   Large Plants     8    25     24.2    75.8
+ 2 Arizona   Small Plants    11    22     33.3    66.7
+ 3 Idaho     Large Plants    37    47     44.0    56.0
+ 4 Idaho     Small Plants    30    54     35.7    64.3
+ 5 Kansas    Large Plants    52    57     47.7    52.3
+ 6 Kansas    Small Plants    47    62     43.1    56.9
+ 7 Montana   Large Plants    13    39     25.0    75.0
+ 8 Montana   Small Plants    21    31     40.4    59.6
+ 9 NewMexico Large Plants    25    34     42.4    57.6
+10 NewMexico Small Plants    19    40     32.2    67.8
+
+
+
+Grouped by vital rate
+
+# A tibble: 2 x 5
+  plant_size    offs   ons off_perc on_perc
+  <chr>        <int> <int>    <dbl>   <dbl>
+1 Large Plants   135   202     40.1    59.9
+2 Small Plants   128   209     38.0    62.0

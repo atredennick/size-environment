@@ -8,9 +8,6 @@
 ##  Created on: December 5, 2017
 ################################################################################
 
-##  Clear the workspace
-rm(list = ls(all.names = TRUE))
-
 
 
 ####
@@ -28,12 +25,9 @@ library(xtable)    # Saves dataframes as LaTeX tables
 ####
 ####  SET DIRECTORY INFORMATION ------------------------------------------------
 ####
-root        <- ifelse(.Platform$OS.type=="windows","c:/repos/","~/repos/");
-dir         <- paste0(root,"drivers/")
-main_dir    <- paste0(dir,"empirical/")
-results_dir <- paste0(main_dir, "size_by_year_models/results/")
-loc_fig_dir <- paste0(main_dir, "size_by_year_models/figures/")
-ms_fig_dir  <- paste0(dir, "Manuscripts/SizebyClimate/figures/")
+main_dir    <- root
+results_dir <- "../results/"
+fig_dir <- "../figures/"
 
 
 
@@ -79,29 +73,29 @@ large_ones <- rbind(grow,surv) %>%
 all_sims <- rbind(small_ones,large_ones) %>%
   mutate(state_spp = paste(state,species,sep="::"))
 
-ggplot(filter(all_sims, vital=="grow"), aes(x=year,y=mean_pred, color=plant_size))+
-  geom_hline(aes(yintercept=0))+
-  geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci), width=0)+
-  geom_point()+
-  facet_wrap(~state_spp, scales = "free")+
-  xlab("Year")+
-  ylab("Annual Anomaly")+
-  scale_color_manual(name=NULL,values = c("black","red"))+
-  ggtitle("Growth Anomalies")+
-  theme_few()
-ggsave(paste0(loc_fig_dir,"growth_anomalies_byyear.pdf"), width = 10, height = 8, units = "in")
+# ggplot(filter(all_sims, vital=="grow"), aes(x=year,y=mean_pred, color=plant_size))+
+#   geom_hline(aes(yintercept=0))+
+#   geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci), width=0)+
+#   geom_point()+
+#   facet_wrap(~state_spp, scales = "free")+
+#   xlab("Year")+
+#   ylab("Annual Anomaly")+
+#   scale_color_manual(name=NULL,values = c("black","red"))+
+#   ggtitle("Growth Anomalies")+
+#   theme_few()
+# ggsave(paste0(loc_fig_dir,"growth_anomalies_byyear.pdf"), width = 10, height = 8, units = "in")
 
-ggplot(filter(all_sims, vital=="surv"), aes(x=year,y=mean_pred, color=plant_size))+
-  geom_hline(aes(yintercept=0))+
-  geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci), width=0)+
-  geom_point()+
-  facet_wrap(~state_spp, scales = "free")+
-  xlab("Year")+
-  ylab("Annual Anomaly")+
-  scale_color_manual(name=NULL,values = c("black","red"))+
-  ggtitle("Survival Anomalies")+
-  theme_few()
-ggsave(paste0(loc_fig_dir,"survival_anomalies_byyear.pdf"), width = 10, height = 8, units = "in")
+# ggplot(filter(all_sims, vital=="surv"), aes(x=year,y=mean_pred, color=plant_size))+
+#   geom_hline(aes(yintercept=0))+
+#   geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci), width=0)+
+#   geom_point()+
+#   facet_wrap(~state_spp, scales = "free")+
+#   xlab("Year")+
+#   ylab("Annual Anomaly")+
+#   scale_color_manual(name=NULL,values = c("black","red"))+
+#   ggtitle("Survival Anomalies")+
+#   theme_few()
+# ggsave(paste0(loc_fig_dir,"survival_anomalies_byyear.pdf"), width = 10, height = 8, units = "in")
 
 
 
@@ -121,7 +115,7 @@ grow_rye_mod <- lm(sd_rye ~ plant_size, data = filter(model_data,vital=="grow"))
 surv_rye_mod <- lm(sd_rye ~ plant_size, data = filter(model_data,vital=="surv"))
 
 ##  Write ANOVA results to file
-sink(file = paste0(ms_fig_dir,"rye_anovas.txt"))
+sink(file = paste0(results_dir,"rye_anovas.txt"))
 timestamp()
 cat("\n\n")
 cat("Growth\n\n")
@@ -166,7 +160,7 @@ surv_sds <- ggplot(filter(sd_sims,vital=="surv"), aes(x=sd_large, y=sd_small, fi
   theme_few()
 
 plot_grid(grow_sds,surv_sds,labels = "AUTO")
-ggsave(paste0(ms_fig_dir,"sd_anomalies_all.pdf"), width = 8, height = 4, units = "in")
+ggsave(paste0(fig_dir,"sd_anomalies_all.pdf"), width = 8, height = 4, units = "in")
 
 
 
@@ -252,7 +246,7 @@ suppressWarnings( # ignore warning about a few non-aligning years for growth and
   # out_plot <- plot_grid(growth_plots,surv_plots,small_plots,large_plots,nrow = 4,labels = "AUTO")
   out_plot <- plot_grid(growth_plots,surv_plots,nrow = 2,labels = "AUTO")
 )
-ggsave(paste0(ms_fig_dir,"small_large_corrs.pdf"),plot = out_plot, width = 10, height = 5, units = "in")
+ggsave(paste0(fig_dir,"small_large_corrs.pdf"),plot = out_plot, width = 10, height = 5, units = "in")
 
 # test_data <- filter(small_large_compare, state=="NewMexico", vital=="grow")
 # t.test(test_data$`Large Plants`, test_data$`Small Plants`, paired=TRUE)
@@ -281,7 +275,7 @@ vital_rate_corrs <- vital_compare %>%
                                   method = "pearson")$p.value)
 
 ##  Write to text file
-sink(file = paste0(ms_fig_dir,"rye_corrs.txt"))
+sink(file = paste0(results_dir,"rye_corrs.txt"))
 timestamp()
 cat("\n\n")
 cat("Among sizes\n\n")
@@ -325,7 +319,7 @@ signs_by_vital <- small_large_compare %>%
   dplyr::mutate(off_perc = offs / (offs+ons) * 100,
                 on_perc = ons / (offs+ons) * 100)
 
-sink(file = paste0(ms_fig_dir,"rye_diag_tallies.txt"))
+sink(file = paste0(results_dir,"rye_diag_tallies.txt"))
 timestamp()
 cat("\n\n")
 cat("Grouped by state, species, and vital rate\n\n")
@@ -369,7 +363,7 @@ surv_grow_signs_only <- vital_compare %>%
   dplyr::mutate(off_perc = offs / (offs+ons) * 100,
                 on_perc = ons / (offs+ons) * 100)
 
-sink(file = paste0(ms_fig_dir,"rye_diag_tallies_within_sizes.txt"))
+sink(file = paste0(results_dir,"rye_diag_tallies_within_sizes.txt"))
 timestamp()
 cat("\n\n")
 cat("Grouped by state, species, and vital rate\n\n")
@@ -384,34 +378,7 @@ sink()
 
 
 
-####
-####  GENERATE LATEX TABLE OF LOG-LIKELIHOOD TESTS -----------------------------
-####
-surv_comps <- readRDS(paste0(results_dir,"surv_model_comparisons.RDS"))
-grow_comps <- readRDS(paste0(results_dir,"grow_model_comparisons.RDS"))
-surv_comps$vital <- "Survival"
-grow_comps$vital <- "Growth"
-all_comps <- rbind(surv_comps, grow_comps) %>%
-  filter(!is.na(Chisq)) %>%
-  dplyr::select(vital,state,species,Chisq,`Pr(>Chisq)`) %>%
-  dplyr::rename(pval = `Pr(>Chisq)`) %>%
-  dplyr::mutate(ptext = round(ifelse(pval < 0.001, 0.001, pval),3)) %>%
-  dplyr::mutate(ptext = ifelse(ptext == 0.001, "< 0.001", as.character(ptext))) %>%
-  dplyr::select(-pval)
-colnames(all_comps) <- c("Vital Rate","State","Species","Chi2","\\emph{P}")
-
-comp_caption <- "Results from comparing models with and without a size$\times$year effect using log likelihood tests. \\emph{P} values less than 0.05 indicate that including a size$\times$year effect produces a better model."
-sink(file = paste0(ms_fig_dir,"model_comparison_table.txt"))
-cat(timestamp(),"\n\n\n\n")
-print(xtable(all_comps, caption = comp_caption, digits = 2),
-      caption.placement="top",
-      include.rownames = F,
-      sanitize.colnames.function = identity,
-      comment = FALSE,
-      size = "normalsize")
-sink()
-
-
+### SI PLOTS ###
 
 ####
 ####  COMPARE ANOMALIES FROM BOTH MODELS ---------------------------------------
@@ -527,45 +494,3 @@ ggsave(paste0(ms_fig_dir,"model_cor_anoms.pdf"),
 
 
 
-
-# ####
-# ####  LOAD RESULTS AND STORE IN LARGE DATAFRAME --------------------------------
-# ####
-# vital_rates <- c("grow","surv")
-# all_states  <- sort(c("Idaho", "Montana", "Arizona", "NewMexico", "Kansas"))
-# all_files   <- list.files(results_dir)
-# dont_keep   <- grep("anomalies", all_files)
-# all_files   <- all_files[-dont_keep]
-# all_sims    <- {} # empty object for storage
-# 
-# for(do_vital in vital_rates){
-#   vital_files <- all_files[grep(do_vital, all_files)]
-#   for(do_state in all_states){
-#     tmp_sims <- readRDS(paste0(results_dir,vital_files[grep(do_state,vital_files)]))
-#     if(do_vital == "surv"){ tmp_sims$cross_zero <- "notapp" }
-#     tmp_sims$vital <- do_vital
-#     all_sims <- rbind(all_sims, tmp_sims)
-#   }
-# }
-# 
-# 
-# 
-# ####
-# ####  PLOT RESPONSES (RYE FUNCTIONS) BY STATE ----------------------------------
-# ####
-# plot_it <- function(plot_data){
-#   ggplot(plot_data, aes(x = size_t0, y = year_effect, group = yearid))+
-#     geom_line(aes(color=cross_zero))+
-#     facet_grid(vital ~ species, scales = "free")+
-#     scale_color_manual(values = c("grey35","grey32","dodgerblue"))+
-#     xlab("log(Area (t))")+
-#     ylab("log(Area (t+1)) Year Effect\nor\nPr(Survival) Year Effect")+
-#     theme_few()
-# }
-# 
-# id <- plot_it(filter(all_sims, state=="Idaho"))
-# mt <- plot_it(filter(all_sims, state=="Montana"))
-# az <- plot_it(filter(all_sims, state=="Arizona"))
-# nm <- plot_it(filter(all_sims, state=="NewMexico"))
-# ks <- plot_it(filter(all_sims, state=="Kansas"))
-# 

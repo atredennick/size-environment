@@ -1,0 +1,24 @@
+##------ Sun Sep  9 13:29:00 2018 ------##
+
+
+Growth
+
+Analysis of Variance Table
+
+Response: sd_rye
+           Df  Sum Sq  Mean Sq F value Pr(>F)
+plant_size  1 0.01232 0.012319  0.2454 0.6242
+Residuals  28 1.40584 0.050209               
+
+
+
+Survival
+
+Analysis of Variance Table
+
+Response: sd_rye
+           Df   Sum Sq  Mean Sq F value Pr(>F)   
+plant_size  1 0.033021 0.033021  11.616  0.002 **
+Residuals  28 0.079596 0.002843                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

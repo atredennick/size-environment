@@ -1,0 +1,72 @@
+##------ Sun Sep  9 13:29:08 2018 ------##
+
+
+Among sizes
+
+       state species vital     anom_cor   cor_pvalue
+1    Arizona    BOER  grow  0.633044738 8.483220e-03
+2    Arizona    BOER  surv  0.853910656 1.292657e-05
+3    Arizona    BORO  grow  0.607553345 9.684373e-03
+4    Arizona    BORO  surv  0.859943669 9.595973e-06
+5      Idaho    ARTR  grow -0.137521565 5.522116e-01
+6      Idaho    ARTR  surv -0.004711661 9.838284e-01
+7      Idaho    HECO  grow  0.164987189 4.748001e-01
+8      Idaho    HECO  surv  0.633151704 2.063926e-03
+9      Idaho    POSE  grow  0.753068601 8.145567e-05
+10     Idaho    POSE  surv  0.747144896 9.946975e-05
+11     Idaho    PSSP  grow  0.265335462 2.450530e-01
+12     Idaho    PSSP  surv  0.371636977 9.715599e-02
+13    Kansas    ANGE  grow  0.673091536 3.654565e-06
+14    Kansas    ANGE  surv  0.600450634 6.737795e-05
+15    Kansas    BOCU  grow  0.386513978 1.812577e-02
+16    Kansas    BOCU  surv  0.830169222 2.095905e-10
+17    Kansas    BOHI  grow  0.989975289 8.887945e-29
+18    Kansas    BOHI  surv  0.961416036 4.556014e-20
+19   Montana    BOGR  grow  0.934713950 2.843749e-06
+20   Montana    BOGR  surv -0.659071876 1.427903e-02
+21   Montana    HECO  grow  0.697124201 8.088138e-03
+22   Montana    HECO  surv  0.746926780 3.348107e-03
+23   Montana    PASM  grow -0.603781659 2.887859e-02
+24   Montana    PASM  surv  0.932040477 3.527662e-06
+25   Montana    POSE  grow  0.752413416 3.002339e-03
+26   Montana    POSE  surv  0.656667046 1.476399e-02
+27 NewMexico    BOER  grow  0.744445693 2.396765e-06
+28 NewMexico    BOER  surv  0.726480980 5.485212e-06
+29 NewMexico    SPFL  grow  0.755780775 2.130999e-06
+30 NewMexico    SPFL  surv  0.541493085 1.999642e-03
+
+
+
+Among vital rates
+
+       state species   plant_size    anom_cor   cor_pvalue
+1    Arizona    BOER Large Plants  0.59866070 0.0142790694
+2    Arizona    BOER Small Plants  0.36941013 0.1590787303
+3    Arizona    BORO Large Plants  0.52890125 0.0290391206
+4    Arizona    BORO Small Plants  0.30270644 0.2376079711
+5      Idaho    ARTR Large Plants  0.26246061 0.2503954978
+6      Idaho    ARTR Small Plants  0.50246714 0.0202674943
+7      Idaho    HECO Large Plants -0.11243187 0.6275189321
+8      Idaho    HECO Small Plants  0.42425274 0.0552640409
+9      Idaho    POSE Large Plants  0.46422198 0.0340091281
+10     Idaho    POSE Small Plants  0.09217230 0.6910944742
+11     Idaho    PSSP Large Plants  0.13750714 0.5522536665
+12     Idaho    PSSP Small Plants  0.22772683 0.3208078410
+13    Kansas    ANGE Large Plants -0.36808014 0.0229850124
+14    Kansas    ANGE Small Plants  0.17510200 0.2930315186
+15    Kansas    BOCU Large Plants  0.29921582 0.0720093016
+16    Kansas    BOCU Small Plants  0.34863076 0.0344550126
+17    Kansas    BOHI Large Plants  0.33211523 0.0549868116
+18    Kansas    BOHI Small Plants  0.28052558 0.1080535228
+19   Montana    BOGR Large Plants -0.04886764 0.8740360256
+20   Montana    BOGR Small Plants  0.46588077 0.1085971948
+21   Montana    HECO Large Plants  0.85639503 0.0001859248
+22   Montana    HECO Small Plants  0.75186603 0.0030355334
+23   Montana    PASM Large Plants  0.70973227 0.0065771195
+24   Montana    PASM Small Plants -0.28782784 0.3402841841
+25   Montana    POSE Large Plants  0.67047825 0.0121400170
+26   Montana    POSE Small Plants  0.42006919 0.1529740561
+27 NewMexico    BOER Large Plants  0.52287353 0.0030313627
+28 NewMexico    BOER Small Plants  0.53949558 0.0020932941
+29 NewMexico    SPFL Large Plants  0.40966798 0.0273157363
+30 NewMexico    SPFL Small Plants  0.32306352 0.0873759460

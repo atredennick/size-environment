@@ -26,7 +26,7 @@
 #  Stephen Ellner
 
 
-# Load necessary packages -------------------------------------------------
+# 00. Load necessary packages ---------------------------------------------
 
 needed_pckgs <- c(
   "tidyverse", "ggthemes", "ggalt", "mvtnorm", "dplyr", "lme4", "boot",
@@ -80,4 +80,47 @@ rm(list = ls(all.names = TRUE))
 
 # Figure 2: figures/sd_anomalies_all.pdf
 # Figure 3: figures/small_large_corrs.pdf
+
+
+# 04. Conduct analysis for seedling differences ---------------------------
+
+root <- getwd()  # set root directory to this location
+source("./size_by_year_IPM/seedling_analysis/compare_seedlings.R")
+rm(list = ls(all.names = TRUE))
+
+root <- getwd()  # set root directory to this location
+source("./size_by_year_IPM/seedling_analysis/collate_seedling_fits.R")
+rm(list = ls(all.names = TRUE))
+
+
+# 05. IPM-based analyses --------------------------------------------------
+
+# NOTE:
+#  We run several IPM-based analyses in this paper, and they take quite a long
+#  time to run. So, this section does not provide "plug-and-play" code, but
+#  rather psuedocode point to the relevant R and bash scripts needed. Users
+#  should take care to change working directories as needed in the individual
+#  scripts -- this should be relatively easy to do by simply changing the 
+#  'root' directory at the top of each script.
+#
+# IPM-1. Fit vital rate models for one and two-stage IPMs
+#  - code/size_by_year_IPM/one_stage/runscripts/fit_vital_rate_models.R
+#  - code/size_by_year_IPM/two_stage/runscripts/fit_vital_rate_models.R
+# 
+# IPM-2. Calculate and plot elasticities
+#  - code/size_by_year_IPM/run_all_sensitivities.sh --> which runs,
+#    + code/size_by_year_IPM/one_stage/runscripts/sensitivity_analysis.R
+#    + code/size_by_year_IPM/two_stage/runscripts/sensitivity_analysis.R
+#  - code/size_by_year_IPM/analysis/plot_sensitivities.R
+#
+# IPM-3. Peform buffering experiments
+#  - code/size_by_year_IPM/buffering_experiments/ipm_no_overlap_sxy_onestage_lambda.R
+#  - code/size_by_year_IPM/buffering_experiments/ipm_no_overlap_sxy_twostage_lambda.R
+#  - code/size_by_year_IPM/buffering_experiments/plot_buffering_experiments.R
+#
+# IPM-4. Perform IPM simulations (equilibrium and transient)
+#  - code/size_by_year_IPM/run_all_ipms.sh --> which runs,
+#    + code/size_by_year_IPM/two_stage/runscripts/ipm_no_overlap_sxy.R
+#    + code/size_by_year_IPM/one_stage/runscripts/ipm_no_overlap_sxy.R
+# - code/size_by_year_IPM/analysis/analyze_ipm_results.R
 

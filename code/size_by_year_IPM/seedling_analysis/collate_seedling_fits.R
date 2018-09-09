@@ -12,12 +12,9 @@
 ####
 ####  PRELIMINARIES ----
 ####
-##  Clear everything out
-rm(list=ls(all.names=TRUE))
 
 ## Provide directory information
-root<-ifelse(.Platform$OS.type=="windows","c:/repos","~/repos"); # modify as needed
-setwd(paste0(root,"/drivers/empirical/size_by_year_IPM/seedling_analysis/")); 
+setwd(paste0(root,"/size_by_year_IPM/seedling_analysis/")); 
 
 ##  Load packages
 library(tidyverse)
@@ -25,7 +22,6 @@ library(dplyr)
 library(stringr)
 library(mgcv)
 library(lme4)
-# library(gamm4) # Is this needed?? 
 
 
 
@@ -74,4 +70,5 @@ out_df$significant[sig_ones] <- "yes"
 
 saveRDS(out_df,"./seedling_pvalues.RDS")
 
+setwd("../../")
 

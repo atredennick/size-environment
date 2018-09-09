@@ -3,15 +3,14 @@
 ### Seedlings are "likely seedlings" as defined by PBA 
 ### Code written by SPE and modified by ATT
 #########################################################################
-rm(list=ls(all.names=TRUE)); 
+
 graphics.off();
 require(mgcv); 
 require(lme4); 
 require(gamm4); 
 
 ## Provide directory information
-root<-ifelse(.Platform$OS.type=="windows","c:/repos","~/repos"); # modify as needed
-setwd(paste0(root,"/drivers/empirical/size_by_year_IPM/seedling_analysis/")); 
+setwd(paste0(root,"/size_by_year_IPM/seedling_analysis/")); 
 
 source("fetchDemoData-allWs.R") 
 source("trimQuadrats.R"); 
@@ -36,7 +35,7 @@ for(state in all_states){
   for(species in 1:length(sppList)){
     ## Import Demographic Data
     doSpp=sppList[species]; 
-    dataDir<-paste0(root,"/driversdata/Data/",state, sep="")
+    dataDir<-paste0("../../../data/",state)
     data<-fetchDemoData(doSpp=sppList[species], state=state, surv=TRUE, dataDir=dataDir,sppList=sppList)
     seedling_size <- round(as.numeric(names(sort(table(exp(data$logarea)),decreasing=TRUE)[1])),5)
     if(seedling_size > 0.26) seedling_size <- 0.26
@@ -77,7 +76,7 @@ for(state in all_states){
     
     ## Import Demographic Data
     doSpp=sppList[species]; 
-    dataDir<-paste0(root,"/driversdata/Data/",state, sep="")
+    dataDir<-paste0("../../../data/",state)
     data<-fetchDemoData(doSpp=sppList[species], state=state, surv=FALSE, dataDir=dataDir,sppList=sppList)
     seedling_size <- round(as.numeric(names(sort(table(exp(data$logarea.t0)),decreasing=TRUE)[1])),5)
     if(seedling_size > 0.26) seedling_size <- 0.26
@@ -117,6 +116,6 @@ for(state in all_states){
 } # end state loop
 
 
-
+setwd("../../")
 
 

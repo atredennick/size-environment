@@ -1,3 +1,5 @@
+Archived on Figshare: [link](https://figshare.com/articles/Data_and_code_from_Size-by-environment_interactions_a_neglected_dimension_of_species_responses_to_environmental_variation/6980054)
+
 # size-environment
 A compendium of data and code for the publication:
 
